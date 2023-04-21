@@ -45,8 +45,11 @@ if (personTwo.role === Role.ADMIN) {
   console.log("admin");
 }
 
+// Type aliases - create your own type - can be used to simplify code rather than repeating yourself
+type Combinable = number | string;
+
 //union type - more flexible, multiple types of values
-function combine(input1: number | string, input2: number | string, resultConversion: string) {
+function combine(input1: Combinable, input2: number | string, resultConversion: string) {
   let result;
   //otherwise typescript won't accept +
   if (typeof input1 === "number" && typeof input2 === "number") {
