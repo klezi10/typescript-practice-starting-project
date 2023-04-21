@@ -63,8 +63,11 @@ function combine(input1: number | string, input2: number | string, resultConvers
 }
 
 //literal types
-const combinedAges = combine('30', '26', 'as-number');
+const combinedAges = combine(30, 26, 'as-number');
 console.log(combinedAges);
+
+const combinedStringAges = combine('30', '26', 'as-number');
+console.log(combinedStringAges)
 
 const combinedNames = combine("John", "Jane", 'as-text');
 console.log(combinedNames)
