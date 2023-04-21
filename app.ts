@@ -46,7 +46,7 @@ if (personTwo.role === Role.ADMIN) {
 }
 
 //union type - more flexible, multiple types of values
-function combine(input1: number | string, input2: number | string) {
+function combine(input1: number | string, input2: number | string, resultConversion: string) {
   let result;
   //otherwise typescript won't accept +
   if (typeof input1 === "number" && typeof input2 === "number") {
@@ -54,11 +54,17 @@ function combine(input1: number | string, input2: number | string) {
   } else {
     result = input1.toString() + input2.toString();
   }
-  return result;
+  if (resultConversion === 'as-number') {
+    return +result;
+  } else {
+    return result.toString();
+  }
+ 
 }
 
-const combinedAges = combine(30, 26);
+//literal types
+const combinedAges = combine('30', '26', 'as-number');
 console.log(combinedAges);
 
-const combinedNames = combine("John", "Jane");
+const combinedNames = combine("John", "Jane", 'as-text');
 console.log(combinedNames)
