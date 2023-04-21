@@ -17,3 +17,14 @@ let userName: string;
 if (typeof userInput === 'string') {
     userName = userInput;
 }
+
+//never type
+//never produces a return value
+function generateError(message: string, code: number): never {
+    throw {message: message, errorCode: code};
+    // while (true) {} another never example
+}
+
+generateError('An error occurred!', 500);
+
+//another function that never returns is a function with an infinite loop
